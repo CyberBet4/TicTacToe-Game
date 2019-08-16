@@ -47,8 +47,9 @@
             this.minimize = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.rename1 = new TicTacToe.rename();
+            this.walter = new System.Windows.Forms.Button();
             this.tieGame1 = new TicTacToe.tieGame();
+            this.rename1 = new TicTacToe.rename();
             this.SuspendLayout();
             // 
             // button1
@@ -326,21 +327,29 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.Silver;
-            this.button10.Location = new System.Drawing.Point(245, 393);
+            this.button10.Location = new System.Drawing.Point(245, 441);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(105, 94);
+            this.button10.Size = new System.Drawing.Size(108, 52);
             this.button10.TabIndex = 6;
             this.button10.Text = "Reset";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
-            // rename1
+            // walter
             // 
-            this.rename1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.rename1.Location = new System.Drawing.Point(38, 145);
-            this.rename1.Name = "rename1";
-            this.rename1.Size = new System.Drawing.Size(268, 144);
-            this.rename1.TabIndex = 7;
+            this.walter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.walter.FlatAppearance.BorderSize = 0;
+            this.walter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.walter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.walter.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12.25F);
+            this.walter.ForeColor = System.Drawing.Color.Silver;
+            this.walter.Location = new System.Drawing.Point(245, 385);
+            this.walter.Name = "walter";
+            this.walter.Size = new System.Drawing.Size(108, 55);
+            this.walter.TabIndex = 6;
+            this.walter.Text = "Play with Bot";
+            this.walter.UseVisualStyleBackColor = true;
+            this.walter.Click += new System.EventHandler(this.walter_Click);
             // 
             // tieGame1
             // 
@@ -350,6 +359,14 @@
             this.tieGame1.Size = new System.Drawing.Size(217, 111);
             this.tieGame1.TabIndex = 8;
             // 
+            // rename1
+            // 
+            this.rename1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.rename1.Location = new System.Drawing.Point(38, 145);
+            this.rename1.Name = "rename1";
+            this.rename1.Size = new System.Drawing.Size(268, 144);
+            this.rename1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +375,7 @@
             this.ClientSize = new System.Drawing.Size(354, 493);
             this.Controls.Add(this.tieGame1);
             this.Controls.Add(this.rename1);
+            this.Controls.Add(this.walter);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.minimize);
@@ -410,6 +428,7 @@
         private rename rename1;
         public System.Windows.Forms.Label label1;
         private tieGame tieGame1;
+        private System.Windows.Forms.Button walter;
     }
 }
 
