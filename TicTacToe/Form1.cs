@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace TicTacToe
 {
     public partial class Form1 : Form
     {
-        
+
         public static string player1name = "player1";
         public static int tic = 0;
         public string tac;
@@ -33,10 +34,11 @@ namespace TicTacToe
         public string checker(int val)
         {
             //simple code to alternate between 'X' and 'O'
-            if(val % 2 == 0)
+            if (val % 2 == 0)
             {
                 tac = "X";
-            }else { tac = "O"; }
+            }
+            else { tac = "O"; }
             return tac;
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -66,7 +68,7 @@ namespace TicTacToe
         {
             //disables all button when a win or draw is encountered
             button1.Enabled = button2.Enabled = button3.Enabled = button4.Enabled =
-            button5.Enabled = button6.Enabled = button7.Enabled = button8.Enabled = 
+            button5.Enabled = button6.Enabled = button7.Enabled = button8.Enabled =
             button9.Enabled = false;
         }
         public void judge()
@@ -78,7 +80,7 @@ namespace TicTacToe
             if (button1.Text == "X" && button2.Text == "X" && button3.Text == "X")
             {
                 button1.BackColor = button2.BackColor = button3.BackColor = Color.FromArgb(210, 216, 179);
-                played(); score(++score1, score2); 
+                played(); score(++score1, score2);
             }
             else if (button1.Text == "X" && button4.Text == "X" && button7.Text == "X")
             {
@@ -89,37 +91,37 @@ namespace TicTacToe
             {
                 button1.BackColor = button5.BackColor = button9.BackColor = Color.FromArgb(210, 216, 179);
                 played(); score(++score1, score2);
-                 
+
             }
             else if (button2.Text == "X" && button5.Text == "X" && button8.Text == "X")
             {
                 button2.BackColor = button5.BackColor = button8.BackColor = Color.FromArgb(210, 216, 179);
                 played(); score(++score1, score2);
-                 
+
             }
             else if (button3.Text == "X" && button6.Text == "X" && button9.Text == "X")
             {
                 button3.BackColor = button6.BackColor = button9.BackColor = Color.FromArgb(210, 216, 179);
                 played(); score(++score1, score2);
-                 
+
             }
             else if (button4.Text == "X" && button5.Text == "X" && button6.Text == "X")
             {
                 button4.BackColor = button5.BackColor = button6.BackColor = Color.FromArgb(210, 216, 179);
                 played(); score(++score1, score2);
-                 
+
             }
             else if (button7.Text == "X" && button8.Text == "X" && button9.Text == "X")
             {
                 button7.BackColor = button8.BackColor = button9.BackColor = Color.FromArgb(210, 216, 179);
                 played(); score(++score1, score2);
-                 
+
             }
             else if (button3.Text == "X" && button5.Text == "X" && button7.Text == "X")
             {
                 button3.BackColor = button5.BackColor = button7.BackColor = Color.FromArgb(210, 216, 179);
                 played(); score(++score1, score2);
-                 
+
             }
             //o version of the game
 
@@ -176,14 +178,14 @@ namespace TicTacToe
         }
         public void startGame(int x)
         {
-            start = x; 
+            start = x;
             walterPlay();
         }
         public void walterPlay()
         {
             //start should start with different method, use random to change start num
             //give different moves
-            if(start == 1)
+            if (start == 1)
             {
                 /**
                  * TODO ON THIS PROGRAM
@@ -196,7 +198,8 @@ namespace TicTacToe
                 button1.Text = "O"; button1.Enabled = false;
                 switch (userPlay)
                 {
-                    case 5: checker(++tic);
+                    case 5:
+                        checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
@@ -226,27 +229,33 @@ namespace TicTacToe
                         else if (button2.Text == "X" && button5.Text == "X" && button8.Enabled == true)
                         {
                             button8.Text = "O"; button8.Enabled = false;
-                        } else if (button4.Text == "X" && button5.Text == "X" && button6.Enabled == true)
+                        }
+                        else if (button4.Text == "X" && button5.Text == "X" && button6.Enabled == true)
                         {
                             button6.Text = "O"; button6.Enabled = false;
-                        } else if (button7.Text == "X" && button5.Text == "X" && button3.Enabled == true)
+                        }
+                        else if (button7.Text == "X" && button5.Text == "X" && button3.Enabled == true)
                         {
                             button3.Text = "O"; button3.Enabled = false;
-                        } else if (button8.Text == "X" && button5.Text == "X" && button2.Enabled == true)
+                        }
+                        else if (button8.Text == "X" && button5.Text == "X" && button2.Enabled == true)
                         {
                             button2.Text = "O"; button2.Enabled = false;
-                        } else if (button9.Text == "X" && button5.Text == "X" && button1.Enabled == true)
+                        }
+                        else if (button9.Text == "X" && button5.Text == "X" && button1.Enabled == true)
                         {
                             button1.Text = "O"; button1.Enabled = false;
-                        } else if (button6.Text == "X" && button5.Text == "X" && button4.Enabled == true)
+                        }
+                        else if (button6.Text == "X" && button5.Text == "X" && button4.Enabled == true)
                         {
                             button4.Text = "O"; button4.Enabled = false;
-                        } else if (button3.Text == "X" && button5.Text == "X" && button7.Enabled == true)
+                        }
+                        else if (button3.Text == "X" && button5.Text == "X" && button7.Enabled == true)
                         {
                             button7.Text = "O"; button7.Enabled = false;
                         }
 
-                        else if(button9.Enabled == true)
+                        else if (button9.Enabled == true)
                         {
                             button9.Text = "O"; button9.Enabled = false;
                         }
@@ -254,7 +263,8 @@ namespace TicTacToe
                         judge();
                         break;
 
-                    case 7: checker(++tic);
+                    case 7:
+                        checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
@@ -305,7 +315,7 @@ namespace TicTacToe
                         {
                             button5.Text = "O"; button5.Enabled = false;
                         }
-                        else if(button3.Enabled == true)
+                        else if (button3.Enabled == true)
                         {
                             button3.Text = "O"; button3.Enabled = false;
                         }
@@ -313,7 +323,8 @@ namespace TicTacToe
 
                         judge();
                         break;
-                    case 2: checker(++tic);
+                    case 2:
+                        checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
@@ -360,11 +371,12 @@ namespace TicTacToe
                         {
                             button6.Text = "O"; button6.Enabled = false;
                         }
-                       
+
                         else { goto case 1; }
                         judge();
                         break;
-                    case 6: checker(++tic);
+                    case 6:
+                        checker(++tic);
 
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
@@ -408,14 +420,15 @@ namespace TicTacToe
                         {
                             button3.Text = "O"; button3.Enabled = false;
                         }
-                        else if(button2.Enabled == true)
+                        else if (button2.Enabled == true)
                         {
                             button2.Text = "O"; button2.Enabled = false;
                         }
                         else { goto case 4; }
                         judge();
                         break;
-                    case 9: checker(++tic);
+                    case 9:
+                        checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
 
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
@@ -467,13 +480,14 @@ namespace TicTacToe
                         {
                             button6.Text = "O"; button6.Enabled = false;
                         }
-                        else if(button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
-                        else if(button4.Enabled == true)
+                        else if (button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button4.Enabled == true)
                         { button4.Text = "O"; button4.Enabled = false; }
                         else { goto case 5; }
                         judge();
                         break;
-                    case 4: checker(++tic);
+                    case 4:
+                        checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
@@ -516,14 +530,15 @@ namespace TicTacToe
                         {
                             button1.Text = "O"; button1.Enabled = false;
                         }
-                        else if(button5.Enabled == true)
+                        else if (button5.Enabled == true)
                         {
                             button5.Text = "O"; button5.Enabled = false;
                         }
                         else { goto case 6; }
                         judge();
                         break;
-                    case 3: checker(++tic);
+                    case 3:
+                        checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
