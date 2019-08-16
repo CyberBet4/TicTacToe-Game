@@ -17,8 +17,14 @@ namespace TicTacToe
         public static string player1name = "player1";
         public static int tic = 0;
         public string tac;
+        public int userPlay, start = 0;
         public int score1, score2 = 0;
 
+        public int Rand(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
         public void score(int score1, int score2)
         {
             player1.Text = score1.ToString();
@@ -168,6 +174,512 @@ namespace TicTacToe
             button1.BackColor = button2.BackColor = button3.BackColor = button4.BackColor = button5.BackColor = button6.BackColor
                 = button7.BackColor = button8.BackColor = button9.BackColor = Color.FromArgb(212, 170, 125);
         }
+        public void startGame(int x)
+        {
+            start = x; 
+            walterPlay();
+        }
+        public void walterPlay()
+        {
+            //start should start with different method, use random to change start num
+            //give different moves
+            if(start == 1)
+            {
+                /**
+                 * TODO ON THIS PROGRAM
+                 * [+] make game dragable
+                 * [+] prompt tie for tie game
+                 * [+] make computer play game too
+                 * [+] player2 rename
+                 * [+] computer will prompt some toast; bragging
+                 */
+                button1.Text = "O"; button1.Enabled = false;
+                switch (userPlay)
+                {
+                    case 5: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        else if (button2.Text == "X" && button5.Text == "X" && button8.Enabled == true)
+                        {
+                            button8.Text = "O"; button8.Enabled = false;
+                        } else if (button4.Text == "X" && button5.Text == "X" && button6.Enabled == true)
+                        {
+                            button6.Text = "O"; button6.Enabled = false;
+                        } else if (button7.Text == "X" && button5.Text == "X" && button3.Enabled == true)
+                        {
+                            button3.Text = "O"; button3.Enabled = false;
+                        } else if (button8.Text == "X" && button5.Text == "X" && button2.Enabled == true)
+                        {
+                            button2.Text = "O"; button2.Enabled = false;
+                        } else if (button9.Text == "X" && button5.Text == "X" && button1.Enabled == true)
+                        {
+                            button1.Text = "O"; button1.Enabled = false;
+                        } else if (button6.Text == "X" && button5.Text == "X" && button4.Enabled == true)
+                        {
+                            button4.Text = "O"; button4.Enabled = false;
+                        } else if (button3.Text == "X" && button5.Text == "X" && button7.Enabled == true)
+                        {
+                            button7.Text = "O"; button7.Enabled = false;
+                        }
+
+                        else if(button9.Enabled == true)
+                        {
+                            button9.Text = "O"; button9.Enabled = false;
+                        }
+                        else { goto case 2; }
+                        judge();
+                        break;
+
+                    case 7: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        else if (button4.Text == "X" && button7.Text == "X" && button1.Enabled == true)
+                        {
+                            button1.Text = "O"; button1.Enabled = false;
+                        }
+                        else if (button8.Text == "X" && button7.Text == "X" && button9.Enabled == true)
+                        {
+                            button9.Text = "O"; button9.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button7.Text == "X" && button3.Enabled == true)
+                        {
+                            button3.Text = "O"; button3.Enabled = false;
+                        }
+                        else if (button1.Text == "X" && button7.Text == "X" && button4.Enabled == true)
+                        {
+                            button4.Text = "O"; button4.Enabled = false;
+                        }
+                        else if (button9.Text == "X" && button7.Text == "X" && button8.Enabled == true)
+                        {
+                            button8.Text = "O"; button8.Enabled = false;
+                        }
+                        else if (button3.Text == "X" && button7.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if(button3.Enabled == true)
+                        {
+                            button3.Text = "O"; button3.Enabled = false;
+                        }
+                        else { goto case 3; }
+
+                        judge();
+                        break;
+                    case 2: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button1.Text == "X" && button2.Text == "X" && button3.Enabled == true)
+                        {
+                            button3.Text = "O"; button3.Enabled = false;
+                        }
+                        else if (button3.Text == "X" && button2.Text == "X" && button1.Enabled == true)
+                        {
+                            button1.Text = "O"; button1.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button2.Text == "X" && button8.Enabled == true)
+                        {
+                            button8.Text = "O"; button8.Enabled = false;
+                        }
+                        else if (button8.Text == "X" && button2.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if (button6.Enabled == true)
+                        {
+                            button6.Text = "O"; button6.Enabled = false;
+                        }
+                       
+                        else { goto case 1; }
+                        judge();
+                        break;
+                    case 6: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button4.Text == "X" && button6.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button6.Text == "X" && button4.Enabled == true)
+                        {
+                            button4.Text = "O"; button4.Enabled = false;
+                        }
+                        else if (button3.Text == "X" && button6.Text == "X" && button9.Enabled == true)
+                        {
+                            button9.Text = "O"; button9.Enabled = false;
+                        }
+                        else if (button9.Text == "X" && button6.Text == "X" && button3.Enabled == true)
+                        {
+                            button3.Text = "O"; button3.Enabled = false;
+                        }
+                        else if(button2.Enabled == true)
+                        {
+                            button2.Text = "O"; button2.Enabled = false;
+                        }
+                        else { goto case 4; }
+                        judge();
+                        break;
+                    case 9: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button1.Text == "X" && button9.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button9.Text == "X" && button1.Enabled == true)
+                        {
+                            button1.Text = "O"; button1.Enabled = false;
+                        }
+                        else if (button8.Text == "X" && button9.Text == "X" && button7.Enabled == true)
+                        {
+                            button7.Text = "O"; button7.Enabled = false;
+                        }
+                        else if (button7.Text == "X" && button9.Text == "X" && button8.Enabled == true)
+                        {
+                            button8.Text = "O"; button8.Enabled = false;
+                        }
+                        else if (button6.Text == "X" && button9.Text == "X" && button3.Enabled == true)
+                        {
+                            button3.Text = "O"; button3.Enabled = false;
+                        }
+                        else if (button3.Text == "X" && button9.Text == "X" && button6.Enabled == true)
+                        {
+                            button6.Text = "O"; button6.Enabled = false;
+                        }
+                        else if(button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if(button4.Enabled == true)
+                        { button4.Text = "O"; button4.Enabled = false; }
+                        else { goto case 5; }
+                        judge();
+                        break;
+                    case 4: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button6.Text == "X" && button4.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button4.Text == "X" && button6.Enabled == true)
+                        {
+                            button6.Text = "O"; button6.Enabled = false;
+                        }
+                        else if (button1.Text == "X" && button4.Text == "X" && button7.Enabled == true)
+                        {
+                            button7.Text = "O"; button7.Enabled = false;
+                        }
+                        else if (button7.Text == "X" && button4.Text == "X" && button1.Enabled == true)
+                        {
+                            button1.Text = "O"; button1.Enabled = false;
+                        }
+                        else if(button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else { goto case 6; }
+                        judge();
+                        break;
+                    case 3: checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button1.Text == "X" && button3.Text == "X" && button2.Enabled == true)
+                        {
+                            button2.Text = "O"; button2.Enabled = false;
+                        }
+                        else if (button7.Text == "X" && button3.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button3.Text == "X" && button7.Enabled == true)
+                        {
+                            button7.Text = "O"; button7.Enabled = false;
+                        }
+                        else if (button9.Text == "X" && button3.Text == "X" && button6.Enabled == true)
+                        {
+                            button6.Text = "O"; button6.Enabled = false;
+                        }
+                        else if (button6.Text == "X" && button3.Text == "X" && button9.Enabled == true)
+                        {
+                            button9.Text = "O"; button9.Enabled = false;
+                        }
+                        else if (button2.Text == "X" && button3.Text == "X" && button1.Enabled == true)
+                        {
+                            button1.Text = "O"; button1.Enabled = false;
+                        }
+                        else { goto case 7; }
+                        judge();
+                        break;
+                    case 8:
+                        checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button7.Text == "X" && button8.Text == "X" && button9.Enabled == true)
+                        {
+                            button9.Text = "O"; button9.Enabled = false;
+                        }
+                        else if (button9.Text == "X" && button8.Text == "X" && button7.Enabled == true)
+                        {
+                            button7.Text = "O"; button7.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button8.Text == "X" && button2.Enabled == true)
+                        {
+                            button2.Text = "O"; button2.Enabled = false;
+                        }
+                        else if (button2.Text == "X" && button8.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        judge();
+                        break;
+                    case 1:
+                        checker(++tic);
+                        //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+                        if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button1.Text == "O" && button5.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button1.Text == "O" && button9.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button9.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        else if (button7.Text == "O" && button5.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button7.Text == "O" && button3.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button3.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button7.Text == "O" && button8.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button7.Text == "O" && button9.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button8.Text == "O" && button9.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button3.Text == "O" && button6.Text == "O" && button9.Enabled == true) { button9.Text = "O"; button9.Enabled = false; }
+                        else if (button3.Text == "O" && button9.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button6.Text == "O" && button9.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
+                        else if (button4.Text == "O" && button5.Text == "O" && button6.Enabled == true) { button6.Text = "O"; button6.Enabled = false; }
+                        else if (button4.Text == "O" && button6.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button6.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button1.Enabled = false; }
+                        else if (button2.Text == "O" && button5.Text == "O" && button8.Enabled == true) { button8.Text = "O"; button8.Enabled = false; }
+                        else if (button2.Text == "O" && button8.Text == "O" && button5.Enabled == true) { button5.Text = "O"; button5.Enabled = false; }
+                        else if (button5.Text == "O" && button8.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
+                        else if (button1.Text == "O" && button4.Text == "O" && button7.Enabled == true) { button7.Text = "O"; button7.Enabled = false; }
+                        else if (button1.Text == "O" && button7.Text == "O" && button4.Enabled == true) { button4.Text = "O"; button4.Enabled = false; }
+                        else if (button4.Text == "O" && button7.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
+                        //BLOCK USER FROM WINNING THE GAME
+                        if (button1.Text == "X" && button3.Text == "X" && button2.Enabled == true)
+                        {
+                            button2.Text = "O"; button2.Enabled = false;
+                        }
+                        else if (button9.Text == "X" && button1.Text == "X" && button5.Enabled == true)
+                        {
+                            button5.Text = "O"; button5.Enabled = false;
+                        }
+                        else if (button4.Text == "X" && button1.Text == "X" && button7.Enabled == true)
+                        {
+                            button7.Text = "O"; button7.Enabled = false;
+                        }
+                        else if (button7.Text == "X" && button1.Text == "X" && button4.Enabled == true)
+                        {
+                            button4.Text = "O"; button4.Enabled = false;
+                        }
+                        else if (button5.Text == "X" && button1.Text == "X" && button9.Enabled == true)
+                        {
+                            button9.Text = "O"; button9.Enabled = false;
+                        }
+                        else if (button1.Text == "X" && button7.Text == "X" && button4.Enabled == true)
+                        {
+                            button4.Text = "O"; button4.Enabled = false;
+                        }
+                        else { goto case 8; }
+                        judge();
+                        break;
+                }
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -191,6 +703,7 @@ namespace TicTacToe
             tic++;
             judge();
             button1.Enabled = false;
+            userPlay = 1; walterPlay();
             tie();
         }
 
@@ -200,6 +713,7 @@ namespace TicTacToe
             tic++;
             judge();
             button2.Enabled = false;
+            userPlay = 2; walterPlay();
             tie();
         }
 
@@ -209,6 +723,7 @@ namespace TicTacToe
             tic++;
             judge();
             button3.Enabled = false;
+            userPlay = 3; walterPlay();
             tie();
         }
 
@@ -218,6 +733,7 @@ namespace TicTacToe
             tic++;
             judge();
             button4.Enabled = false;
+            userPlay = 4; walterPlay();
             tie();
         }
 
@@ -227,6 +743,7 @@ namespace TicTacToe
             tic++;
             judge();
             button5.Enabled = false;
+            userPlay = 5; walterPlay();
             tie();
         }
 
@@ -236,6 +753,7 @@ namespace TicTacToe
             tic++;
             judge();
             button6.Enabled = false;
+            userPlay = 6; walterPlay();
             tie();
         }
 
@@ -245,6 +763,7 @@ namespace TicTacToe
             tic++;
             judge();
             button7.Enabled = false;
+            userPlay = 7; walterPlay();
             tie();
         }
 
@@ -254,6 +773,7 @@ namespace TicTacToe
             tic++;
             judge();
             button8.Enabled = false;
+            userPlay = 8; walterPlay();
             tie();
         }
 
@@ -263,6 +783,7 @@ namespace TicTacToe
             tic++;
             judge();
             button9.Enabled = false;
+            userPlay = 9; walterPlay();
             tie();
         }
 
@@ -286,6 +807,12 @@ namespace TicTacToe
         private void close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void walter_Click(object sender, EventArgs e)
+        {
+            start = 1;
+            startGame(start);
         }
 
         private void minimize_Click(object sender, EventArgs e)
