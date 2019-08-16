@@ -640,6 +640,7 @@ namespace TicTacToe
                         break;
                     case 1:
                         checker(++tic);
+
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
