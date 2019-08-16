@@ -365,6 +365,7 @@ namespace TicTacToe
                         judge();
                         break;
                     case 6: checker(++tic);
+
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
@@ -416,6 +417,7 @@ namespace TicTacToe
                         break;
                     case 9: checker(++tic);
                         //WIN THE GAME, WHEN THE CHANCE SHOWS UP
+
                         if (button1.Text == "O" && button3.Text == "O" && button2.Enabled == true) { button2.Text = "O"; button2.Enabled = false; }
                         else if (button1.Text == "O" && button2.Text == "O" && button3.Enabled == true) { button3.Text = "O"; button3.Enabled = false; }
                         else if (button2.Text == "O" && button3.Text == "O" && button1.Enabled == true) { button1.Text = "O"; button1.Enabled = false; }
